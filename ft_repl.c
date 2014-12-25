@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:31:06 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 08:06:21 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/25 09:21:02 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void				ft_repl(char **env, char **path)
 
 	while (1)
 	{
-		cmd = ft_prompt();
+		cmd = ft_prompt(env);
 		ft_get_command(cmd, path, &env);
 	}
 	// Norme interruption

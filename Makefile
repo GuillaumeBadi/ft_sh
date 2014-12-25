@@ -6,7 +6,7 @@
 #    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 03:19:18 by gbadi             #+#    #+#              #
-#    Updated: 2014/12/25 08:24:25 by gbadi            ###   ########.fr        #
+#    Updated: 2014/12/25 09:18:24 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC =				\
 					ft_pwd.c\
 					ft_subc.c\
 					ft_get_env.c\
+					ft_get_home.c\
 					ft_unsetenv.c\
 					ft_setenv.c\
 					ft_repl.c\

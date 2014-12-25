@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_pwd.c                                       :+:      :+:    :+:   */
+/*   ft_get_home.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 04:54:19 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 09:30:27 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/25 09:17:59 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/25 09:18:08 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char				*ft_pwd(void)
+char				*ft_get_home(char **env)
 {
-	char			dir[1024];
+	char			*home;
 
-	if (getcwd(dir, sizeof(dir)) != NULL)
-		return (ft_strdup(dir));
-	return (NULL);
+	home = env[ft_get_env(env, "HOME")] + 5;
+	return (home);
 }
