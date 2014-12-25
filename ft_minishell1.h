@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 07:47:56 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/25 08:23:10 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int					ft_cd(char **env, char **path, char *dir);
 char				*ft_pwd(void);
 void				ft_clear(void);
 int					ft_get_env(char **env, char *name);
-char				**ft_setenv(char **env, char *xport);
+int					ft_setenv(char ***env, char *xport);
+char				*ft_subc(char *s, char c);
+int					ft_unsetenv(char ***env, char *unset);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:26:24 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 07:51:36 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/25 08:24:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int				ft_get_command(char *command, char **path, char ***env)
 	else if (ft_strnequ(command, "cd", 2))
 		ft_cd(*env, path, ft_strtrim(command + 2));
 	else if (ft_strnequ(command, "export", 6))
-		*env = ft_setenv(*env, ft_strtrim(command + 6));
+		ft_setenv(env, ft_strtrim(command + 6));
+	else if (ft_strnequ(command, "unset", 5))
+		ft_unsetenv(env, ft_strtrim(command + 5));
 
 	else if (ft_strcmp(ft_strtrim(command), ""))
 		ft_putendl(ft_strjoin("Minishell One: command not found: ", command));

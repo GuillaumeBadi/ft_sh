@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_repl.c                                          :+:      :+:    :+:   */
+/*   ft_subc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 04:31:06 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 08:06:21 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/25 08:00:52 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/25 08:16:45 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-void				ft_repl(char **env, char **path)
+char				*ft_subc(char *s, char c)
 {
-	char			*cmd;
+	int				i;
+	char			*str;
 
-	while (1)
-	{
-		cmd = ft_prompt();
-		ft_get_command(cmd, path, &env);
-	}
-	// Norme interruption
-	cmd = cmd;
+	i = 0;
+	str = NULL;
+	while (s[i] && s[i] != c)
+		i++;
+	if (s[i] == c)
+		str = ft_strndup(s, i);
+	return (str);
 }
+

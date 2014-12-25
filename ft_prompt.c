@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:24:14 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 07:06:26 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/25 09:10:32 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static char				*get_dirname()
 	len = ft_strlen(path);
 	while (path[len] != '/')
 		len--;
+	if (!path[len - 1])
+		return (path + len);
 	return (path + len + 1);
 }
 
@@ -30,11 +32,13 @@ char					*ft_prompt(void)
 	int					ret;
 
 	s = NULL;
-	ft_putstr(get_dirname());
-	ft_putchar(' ');
 	ft_putstr(COLOR_GREEN);
 	ft_putstr("➜  ");
 	ft_putstr(COLOR_RESET);
+	ft_putstr(COLOR_CYAN);
+	ft_putstr(get_dirname());
+	ft_putstr(COLOR_RESET);
+	ft_putchar(' ');
 	ret = get_next_line(0, &s);
 	if (ret == -1)
 		return (NULL);

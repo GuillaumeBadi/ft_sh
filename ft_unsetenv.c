@@ -1,26 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_repl.c                                          :+:      :+:    :+:   */
+/*   ft_unsetenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 04:31:06 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 08:06:21 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/25 07:57:38 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/25 09:04:30 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-void				ft_repl(char **env, char **path)
+static int					size_env(char **env)
 {
-	char			*cmd;
+	int				i;
 
-	while (1)
+	i = 0;
+	while (env[i])
+		i++;
+	return (i);
+}
+
+int					ft_unsetenv(char ***env, char *unset)
+{
+	char			**e;
+	int				i;
+	char			**new;
+	int				j;
+
+	j = 0;
+	i = 0;
+	e = *env;
+	new = (char **)malloc(sizeof(char *) * size_env(e));
+	while (e[i])
 	{
-		cmd = ft_prompt();
-		ft_get_command(cmd, path, &env);
+		if (ft_strequ(ft_subc(e[i], '='), unset))
+			i++;
+		new[j] = ft_strdup(e[i]);
+		i++;
+		j++;
 	}
-	// Norme interruption
-	cmd = cmd;
+	new[j] = 0;
+	*env = new;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 06:22:34 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 07:55:09 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/25 08:57:18 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char			**create_env(char **env, char *xport, int len)
 	int				i;
 
 	i = 0;
-	new = (char **)malloc(sizeof(char *) * len + 2);
+	new = (char **)malloc(sizeof(char *) * (len + 2));
 	if (!new)
 		return (NULL);
 	while (i < len)
@@ -27,23 +27,11 @@ static char			**create_env(char **env, char *xport, int len)
 		i++;
 	}
 	new[i] = ft_strdup(xport);
-	new[i + 1] = 0;
+	new[i + 1] = NULL;
 	return (new);
 }
 
-char				*ft_subc(char *s, char c)
-{
-	int				i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	if (s[i] == c)
-		return (ft_strndup(s, i - 1));
-	return (NULL);
-}
-
-char				**ft_setenv(char **env, char *xport)
+int					ft_setenv(char ***env, char *xport)
 {
 	int				i;
 	int				len;
@@ -51,20 +39,20 @@ char				**ft_setenv(char **env, char *xport)
 
 	i = 0;
 	len = 0;
-	while (xport[len + 1] != '=' && xport[len + 1] != '\0')
+	while (xport[len] != '=' && xport[len] != '\0')
 		len++;
-	if (xport[len + 1] != '=')
-		return (env);
+	if (xport[len] != '=')
+		return (-1);
 	name = ft_strndup(xport, len);
-	while (env[i])
+	while ((*env)[i])
 	{
-		if (ft_strequ(ft_subc(env[i], '='), name))
+		if (ft_strequ(ft_subc((*env)[i], '='), name))
 		{
-			env[i] = ft_strdup(xport);
-			return (env);
+			(*env)[i] = ft_strdup(xport);
+			return (1);
 		}
 		i++;
 	}
-	env = create_env(env, xport, i);
-	return (env);
+	*env = create_env(*env, xport, i);
+	return (1);
 }
