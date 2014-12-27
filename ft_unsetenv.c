@@ -6,42 +6,43 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 07:57:38 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 09:04:30 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 17:58:19 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-static int					size_env(char **env)
+static int			get_len(char **e)
 {
 	int				i;
 
 	i = 0;
-	while (env[i])
+	while (e[i])
 		i++;
 	return (i);
 }
 
 int					ft_unsetenv(char ***env, char *unset)
 {
-	char			**e;
-	int				i;
 	char			**new;
+	int				i;
 	int				j;
+	int				len;
 
-	j = 0;
 	i = 0;
-	e = *env;
-	new = (char **)malloc(sizeof(char *) * size_env(e));
-	while (e[i])
+	j = 0;
+	len = get_len(*env);
+	new = (char **)malloc(sizeof(char *) * len);
+	while (i < len)
 	{
-		if (ft_strequ(ft_subc(e[i], '='), unset))
-			i++;
-		new[j] = ft_strdup(e[i]);
+		if (!ft_strnequ((*env)[i], unset, ft_strlen(unset)))
+		{
+			new[j] = ft_strdup((*env)[i]);
+			j++;
+		}
 		i++;
-		j++;
 	}
-	new[j] = 0;
+	new[j] = NULL;
 	*env = new;
 	return (0);
 }

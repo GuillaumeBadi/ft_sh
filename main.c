@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 10:10:13 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 17:52:24 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int				main(int ac, char **av, char **env)
 {
 	char		**path;
 
+	ft_setenv(&env, ft_strjoin("PWD=", ft_pwd()));
+	ft_setenv(&env, ft_strjoin("OLDPWD=", ft_pwd()));
 	path = ft_get_path(env);
 	ft_repl(env, path);
-
 	(void)ac;
 	(void)av;
 	(void)env;

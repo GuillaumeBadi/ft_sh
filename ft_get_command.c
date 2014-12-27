@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:26:24 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 10:30:29 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/26 22:09:45 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int				ft_get_command(char *command, char **path, char ***env)
 {
 	int			ret;
+	char		*bin;
 
 	ret = 0;
 	if (ft_strlen(ft_strtrim(command)) == 0)
@@ -44,12 +45,16 @@ int				ft_get_command(char *command, char **path, char ***env)
 	else if (ft_strnequ(command, "unset", 5))
 		ret = ft_unsetenv(env, ft_strtrim(command + 5));
 
+	else if ((bin = ft_get_bin(command, path)) != NULL)
+	{
+		ret = ft_exec(bin, command, *env);
+	}
+
 	else if (ft_strcmp(ft_strtrim(command), ""))
 	{
 		ft_putendl(ft_strjoin("Minishell One: command not found: ", command));
 		ret = -1;
 	}
-
 	path = path;
 	env = env;
 	return (ret);

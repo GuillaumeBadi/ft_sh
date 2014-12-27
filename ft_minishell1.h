@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 10:42:13 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/26 21:38:35 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/stat.h>
+# include <dirent.h>
+# include <sys/wait.h>
 
 char				*ft_prompt(char **env, int ret);
 char				**ft_get_path(char **env);
@@ -33,5 +35,10 @@ int					ft_setenv(char ***env, char *xport);
 char				*ft_subc(char *s, char c);
 int					ft_unsetenv(char ***env, char *unset);
 char				*ft_get_home(char **env);
+char				*ft_get_bin(char *command, char **path);
+int					ft_exec(char *bin, char *command, char **env);
+char				*ft_sub_space(char *s);
+char				*get_first_word(char *command);
+char				*ft_fuckit(char *s);
 
 #endif

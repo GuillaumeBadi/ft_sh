@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_subc.c                                          :+:      :+:    :+:   */
+/*   ft_fuckit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 08:00:52 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 17:48:28 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/26 20:42:31 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/26 21:27:35 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char				*ft_sub_space(char *s)
+char				*ft_fuckit(char *s)
 {
+	char			*new;
 	int				i;
-	char			*str;
+	int				j;
 
 	i = 0;
-	str = NULL;
-	while (s[i] && s[i] != ' ' && s[i] != '\t')
-		i++;
-	if (s[i] == ' ' || s[i] == '\t')
-		str = ft_strndup(s, i);
-	return (str);
-}
-
-char				*ft_subc(char *s, char c)
-{
-	int				i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (ft_strsub(s, 0, i));
+	j = 0;
+	s = ft_strtrim(s);
+	new = (char *)malloc(sizeof(char) * ft_strlen(s));
+	while (s[i])
+	{
+		if(ft_isspace(s[i]) && new[j - 1] != ' ')
+		{
+			new[j] = ' ';
+			i++;
+			j++;
+		}
+		else if (ft_isspace(s[i]))
+			i++;
+		else
+		{
+			new[j] = s[i];
+			i++;
+			j++;
+		}
+	}
+	return (new);
 }

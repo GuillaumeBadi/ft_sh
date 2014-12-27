@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:09:22 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 04:10:30 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/26 00:53:51 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int		nb_words(char const *s, char c)
 	len = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i + 1] == c)
+		if (s[i] != c && s[i] != ' ' && s[i] != '\t' && s[i + 1] == c)
 			len++;
-		else if (s[i] != c && !s[i + 1])
+		else if (s[i] != c && s[i] != ' ' && s[i] != '\t' &&!s[i + 1])
 			len++;
 		i++;
 	}
@@ -36,7 +36,7 @@ static int		len_split(char const *s, char c)
 	int		len;
 
 	len = 0;
-	while (s[len] && s[len] != c)
+	while (s[len] && s[len] != c && s[len] != ' ' && s[len] != '\t')
 		len++;
 	return (len);
 }
@@ -46,7 +46,7 @@ static char		*cpy_split(char *dst, char const *src, char c)
 	int		i;
 
 	i = 0;
-	while (src[i] && src[i] != c)
+	while (src[i] && src[i] != c && src[i] != ' ' && src[i] != '\t')
 	{
 		dst[i] = src[i];
 		i++;
@@ -69,7 +69,7 @@ char			**ft_strsplit(char const *s, int c)
 		tab = (char **)malloc(sizeof(char *) * (words + 1));
 		while (i < words)
 		{
-			while (*s == c)
+			while (*s == c || *s == ' ' || *s == '\t')
 				s++;
 			tab[i] = (char *)malloc(sizeof(char) * (len_split(s, c)));
 			cpy_split(tab[i], s, c);

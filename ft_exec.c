@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_subc.c                                          :+:      :+:    :+:   */
+/*   ft_exec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 08:00:52 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 17:48:28 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/25 23:14:47 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/26 21:28:27 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char				*ft_sub_space(char *s)
+int					ft_exec(char *bin, char *command, char **env)
 {
-	int				i;
-	char			*str;
+	pid_t			child;
+	int				status;
+	char			**bla;
 
-	i = 0;
-	str = NULL;
-	while (s[i] && s[i] != ' ' && s[i] != '\t')
-		i++;
-	if (s[i] == ' ' || s[i] == '\t')
-		str = ft_strndup(s, i);
-	return (str);
-}
-
-char				*ft_subc(char *s, char c)
-{
-	int				i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (ft_strsub(s, 0, i));
+	child = fork();
+	if (child < 0)
+		return (-1);
+	if (child > 0)
+	{
+		waitpid(child, &status, 0);
+	}
+	else
+	{
+		bla = ft_strsplit(ft_fuckit(command), ' ');
+		execve(bin, bla, env);
+		exit(-1);
+	}
+	return (WEXITSTATUS(status));
 }
