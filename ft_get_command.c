@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:26:24 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/26 22:09:45 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 18:23:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int				ft_get_command(char *command, char **path, char ***env)
 		if (ft_strlen(ft_strtrim(command)) > 2)
 			ret = ft_cd(*env, path, ft_strtrim(command + 2));
 		else
-			ret = -1;
+			ret = ft_cd(*env, path, NULL);
 	}
 	else if (ft_strnequ(command, "export", 6))
 	{

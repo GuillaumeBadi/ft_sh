@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 17:52:24 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/28 00:11:17 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,5 @@ int				main(int ac, char **av, char **env)
 	path = ft_get_path(env);
 	ft_repl(env, path);
 	(void)ac;
-	(void)av;
-	(void)env;
-	(void)path;
 	return (0);
 }

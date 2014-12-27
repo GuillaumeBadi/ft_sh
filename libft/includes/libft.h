@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 15:40:23 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 04:38:07 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 18:56:12 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char			*ft_strtrim(char const *s);
 char			*ft_strnstr(char const *s1, const char *s2, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 char			*ft_strstr(const char *s1, const char *s2);
-char			**ft_strsplit(char const *s, int c);
+char			**ft_strsplit(char const *s, char c);
 char			*ft_trimc(char const *str, char c);
 int				ft_get_next_word_c(char const *s, char c);
 char			*ft_strndup(char const *s, size_t len);

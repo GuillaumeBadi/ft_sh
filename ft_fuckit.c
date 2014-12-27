@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/26 20:42:31 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/26 21:27:35 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 19:11:13 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char				*ft_fuckit(char *s)
 
 	i = 0;
 	j = 0;
-	s = ft_strtrim(s);
 	new = (char *)malloc(sizeof(char) * ft_strlen(s));
 	while (s[i])
 	{
@@ -39,5 +38,6 @@ char				*ft_fuckit(char *s)
 			j++;
 		}
 	}
+	new[j] = '\0';
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/26 21:38:35 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 22:10:10 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@
 # include <sys/stat.h>
 # include <dirent.h>
 # include <sys/wait.h>
+# include <signal.h>
+		
+
+typedef struct		s_alias
+{
+	char			*input;
+	char			*output;
+	struct s_alias	*next;
+}					t_alias;
 
 char				*ft_prompt(char **env, int ret);
 char				**ft_get_path(char **env);

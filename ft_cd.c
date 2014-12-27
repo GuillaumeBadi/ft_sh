@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:51:52 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/26 03:21:49 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/27 18:26:48 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int					ft_cd(char **env, char **path, char *dir)
 	char			*pwd;
 	int				i;
 
+	if (!dir)
+		dir = ft_get_home(env);
+	if (dir[0] == '~')
+		dir = ft_strjoin(ft_get_home(env), dir + 1);
 	if (dir[0] == '-' && !dir[1])
 	{
 		dir = env[ft_get_env(env, "OLDPWD")] + 7;
@@ -37,8 +41,6 @@ int					ft_cd(char **env, char **path, char *dir)
 	}
 	if (ft_strnequ(dir, "--", 2))
 		dir = ft_strjoin(ft_get_home(env), dir + 2);
-	if (dir[0] == '~')
-		dir = ft_strjoin(ft_get_home(env), dir + 1);
 	i = ft_get_env(env, "OLDPWD");
 	env[i] = ft_strjoin("OLDPWD=", ft_pwd());
 	if (chdir(dir) != 0)

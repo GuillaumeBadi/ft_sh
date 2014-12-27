@@ -6,13 +6,14 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:13:28 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 04:14:04 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/28 00:11:20 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-void					ft_exit(int ret)
+void					ft_exit(int s)
 {
-	exit(ret);
+	signal(SIGINT, ft_exit);
+	ft_repl();
 }
