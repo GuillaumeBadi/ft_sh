@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 19:26:10 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 06:43:15 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 22:44:18 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,21 @@ char					*ft_tabjoin(char **tab)
 	return (new);
 }
 
+void					print_alias(t_alias *alias)
+{
+	t_alias				*current;
+
+	current = alias;
+	while (current != NULL)
+	{
+		ft_putstr("input: ");
+		ft_putstr(current->input);
+		ft_putstr(" => output: ");
+		ft_putendl(current->output);
+		current = current->next;
+	}
+}
+
 char					*translate_alias(t_alias **alias, char *command)
 {
 	char				**tab;
@@ -74,6 +89,7 @@ char					*translate_alias(t_alias **alias, char *command)
 	int					found;
 	int					i;
 
+//	print_alias(*alias);
 	found = 0;
 	i = 0;
 	tab = ft_strsplit(command, ' ');
@@ -90,18 +106,3 @@ char					*translate_alias(t_alias **alias, char *command)
 	return (found ? translate_alias(alias, ft_tabjoin(tab)) : ft_tabjoin(tab));
 }
 
-void					print_alias(t_alias *alias)
-{
-	t_alias				*current;
-
-	current = alias;
-	while (current != NULL)
-	{
-		ft_putstr("input =");
-		ft_putendl(current->input);
-		ft_putstr("output =");
-		ft_putendl(current->output);
-		ft_putendl("\n\n");
-		current = current->next;
-	}
-}

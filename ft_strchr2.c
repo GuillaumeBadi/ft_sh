@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_alias.c                                     :+:      :+:    :+:   */
+/*   ft_strchr2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/03 05:42:57 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 22:41:16 by gbadi            ###   ########.fr       */
+/*   Created: 2015/01/03 22:23:32 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/03 22:29:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int					is_valid(char *cmd)
+int				ft_strchr2(char const *s, int c)
 {
-	if (ft_strchr(cmd, '=') != NULL && ft_strlen(cmd) > 3)
-		return (1);
-	return (0);
-}
+	int			i;
+	int			inside;
 
-t_alias				*ft_add_alias(char *command, t_alias **alias)
-{
-	char			*input;
-	char			*output;
-
-	if (ft_strlen(command) == 0)
-		print_alias(*alias);
-	else if (is_valid(command))
+	i = 0;
+	inside = 0;
+	while (s[i])
 	{
-		input = ft_subc(command, '=');
-		output = ft_strdup(ft_strchr(command, '=') + 1);
-		*alias = push_alias(*alias, input, output);
+		if (s[i] == '\"' && inside == 0)
+			inside = 1;
+		else if (s[i] == '\"' && inside == 1)
+			inside = 0;	
+		if (s[i] == c && inside == 0)
+			return (1);
+		i++;
 	}
-	return (*alias);
+	return (0);
 }

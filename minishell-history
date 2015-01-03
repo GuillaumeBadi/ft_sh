@@ -36,3 +36,89 @@ ls -R /
 vim ft_exit.c
 vim ft_exit.c
 ls -R /
+git add --all
+vim minishell1rc
+ls
+ls -R /
+cat
+top
+ls -l
+ls -la .. /
+ls -la .. /
+clear
+echo hello
+echo hello
+ls
+ls
+ls -l
+clear
+ls
+ls -l
+ls -l
+echo hello
+echo world
+echo hello
+echo hello; hello world
+echo hello
+echo world
+echo hello; echo world
+echo hello
+echo world
+echo hello; echo world
+echo hello
+echo wordl
+git push origin master
+git commit -m 'autoupdate'
+echo world"
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo Hello
+echo world"
+echo world"
+vim repl vim repl
+echo world"
+echo hello
+echo world"
+echo hello
+echo world"
+ls
+cat
+echo hello
+echo world"
+echo hello
+echo world
+clear
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+echo hello
+echo world
+"echo hello; echo world"
+echo hello
+echo world
+"echo hello; echo world"
+echo hello

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:13:28 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 19:27:05 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 22:01:13 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void					ft_exit(int s)
 {
 	s = s;
-	ft_putchar('\n');
 	signal(SIGINT, ft_exit);
 	signal (SIGQUIT, ft_exit);
 }

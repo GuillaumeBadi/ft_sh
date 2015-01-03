@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 18:39:38 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 22:45:08 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int				main(int ac, char **av, char **env)
 	char		**path;
 	t_alias		*alias;
 
-	alias = new_alias("test", "echo Hello");
+	alias = new_alias("shell", "echo Minishell One by GBadi");
 	if (!env[0])
 	{
 		env = (char **)malloc(sizeof(char *) * 1);
