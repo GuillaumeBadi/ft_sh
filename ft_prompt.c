@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:24:14 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 19:14:15 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 03:05:54 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char				*get_dirname(char **env)
 		len--;
 	if (ft_strequ(env[ft_get_env(env, "USER")] + 5, path + len + 1))
 		return ("~");
-	if (!path[len - 1])
+	else if (!path[len - 1])
 		return (path + len);
 	return (path + len + 1);
 }

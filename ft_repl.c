@@ -6,24 +6,27 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:31:06 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/28 00:11:14 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 06:54:29 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-void				ft_repl(char **env, char **path)
+void				ft_repl(char **env, char **path, t_alias **alias)
 {
 	char			*cmd;
 	int				ret;
 
 	ret = 0;
 	signal(SIGINT, ft_exit);
+	ft_minishellrc(alias, path, &env);
 	while (1)
 	{
 		cmd = ft_prompt(env, ret);
 		if (cmd)
-			ret = ft_get_command(cmd, path, &env);
+		{
+			ret = ft_get_command(cmd, path, &env, alias);
+		}
 	}
 	cmd = cmd;
 }

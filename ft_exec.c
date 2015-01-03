@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 23:14:47 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 19:11:06 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 02:40:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ int					ft_exec(char *bin, char *command, char **env)
 	}
 	else
 	{
-		bla = ft_strsplit(ft_fuckit(command), ' ');
-		execve(bin, bla, env);
+		bla = ft_strsplit(command, ' ');
+		if (execve(bin, bla, env) < 0)
+		{
+			// Norme interruption
+			dprintf(1, "%s\n", "error");
+		}
 		exit(-1);
 	}
 	return (WEXITSTATUS(status));

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 22:10:10 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 06:31:40 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/stat.h>
+# include <sys/types.h>
+# include <fcntl.h>
 # include <dirent.h>
 # include <sys/wait.h>
 # include <signal.h>
@@ -34,8 +36,8 @@ char				*ft_prompt(char **env, int ret);
 char				**ft_get_path(char **env);
 void				ft_exit(int ret);
 void				ft_env(char **env);
-int					ft_get_command(char *command, char **path, char ***env);
-void				ft_repl(char **env, char **path);
+int					ft_get_command(char *command, char **path, char ***env, t_alias **alias);
+void				ft_repl(char **env, char **path, t_alias **alias);
 int					ft_cd(char **env, char **path, char *dir);
 char				*ft_pwd(void);
 void				ft_clear(void);
@@ -49,5 +51,14 @@ int					ft_exec(char *bin, char *command, char **env);
 char				*ft_sub_space(char *s);
 char				*get_first_word(char *command);
 char				*ft_fuckit(char *s);
+int					ft_isonlyspace(char *s);
 
+t_alias				*new_alias(char *input, char *output);
+t_alias				*push_alias(t_alias *alias, char *input, char *output);
+char				*get_output(t_alias *alias, char *input);
+char				*ft_tabjoin(char **tab);
+char				*translate_alias(t_alias **alias, char *command);
+void				print_alias(t_alias *alias);
+t_alias				*ft_add_alias(char *command, t_alias **alias);
+void				ft_minishellrc(t_alias **alias, char **path, char ***env);
 #endif

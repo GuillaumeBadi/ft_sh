@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_subc.c                                          :+:      :+:    :+:   */
+/*   ft_isonlyspace.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 08:00:52 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 05:50:00 by gbadi            ###   ########.fr       */
+/*   Created: 2015/01/03 00:56:59 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/03 01:45:35 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char				*ft_sub_space(char *s)
-{
-	int				i;
-	char			*str;
-
-	i = 0;
-	str = NULL;
-	while (s[i] && s[i] != ' ' && s[i] != '\t')
-		i++;
-	if (s[i] == ' ' || s[i] == '\t')
-		str = ft_strndup(s, i);
-	return (str);
-}
-
-char				*ft_subc(char *s, char c)
+// Norme interruption
+// inutil
+int					ft_isonlyspace(char *s)
 {
 	int				i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i])
+	{
+		if (!ft_isspace(s[i]))
+			return (0);
 		i++;
-	return (ft_strsub(s, 0, i));
+	}
+	return (1);
 }

@@ -1,0 +1,15 @@
+echo "Minishelrc"
+alias gg=gcc -Wall -Wextra -Werror
+alias ..=cd ..
+alias ll=ls -l
+alias test=echo Hello
+alias -=cd -
+alias ..=cd ..
+alias ...=cd ../..
+alias 1=cd -
+alias compile=gcc -Wall -Wextra -Werror
+alias cd..=cd ..
+alias cd...=cd ../..
+alias cd....=cd ../../..
+alias cd.....=cd ../../../..
+alias cd/=cd /

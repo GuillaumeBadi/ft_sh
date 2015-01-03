@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 19:26:10 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/27 19:57:19 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 06:43:15 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,14 @@ t_alias					*new_alias(char *input, char *output)
 t_alias					*push_alias(t_alias *alias, char *input, char *output)
 {
 	t_alias				*new;
+	t_alias				*current;
 
 	new = new_alias(input, output);
-	new->next = alias;
-	return (new);
+	current = alias;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = new;
+	return (alias);
 }
 
 char					*get_output(t_alias *alias, char *input)
@@ -40,7 +44,9 @@ char					*get_output(t_alias *alias, char *input)
 	while (current != NULL)
 	{
 		if (ft_strequ(current->input, input))
+		{
 			return (current->output);
+		}
 		current = current->next;
 	}
 	return (NULL);
@@ -55,29 +61,33 @@ char					*ft_tabjoin(char **tab)
 	new = "";
 	while (tab[i])
 	{
-		new = ft_strjoin(ft_strjoin(new, " "), tab[i]);
+		new = ft_strjoin(ft_strjoin(new, (i == 0) ? "" : " "), tab[i]);
 		i++;
 	}
 	return (new);
 }
 
-char					*translate_alias(t_alias *alias, char *command)
+char					*translate_alias(t_alias **alias, char *command)
 {
 	char				**tab;
 	char				*output;
+	int					found;
 	int					i;
 
+	found = 0;
 	i = 0;
 	tab = ft_strsplit(command, ' ');
-	while (tab[i])
+	if (ft_strequ(tab[0], "alias"))
 	{
-		if ((output = get_output(alias, tab[i])) != NULL)
-		{
-			tab[i] = ft_strdup(output);
-		}
-		i++;
+		return (command);
 	}
-	return ((found == 1) ? translate_alias(alias, command) : ft_tabjoin(tab));
+	output = get_output(*alias, tab[i]);
+	if (output != NULL)
+	{
+		tab[i] = ft_strdup(output);
+		found = 1;
+	}
+	return (found ? translate_alias(alias, ft_tabjoin(tab)) : ft_tabjoin(tab));
 }
 
 void					print_alias(t_alias *alias)
@@ -87,10 +97,11 @@ void					print_alias(t_alias *alias)
 	current = alias;
 	while (current != NULL)
 	{
-		ft_putstr("input = ");
+		ft_putstr("input =");
 		ft_putendl(current->input);
-		ft_putstr("output = ");
+		ft_putstr("output =");
 		ft_putendl(current->output);
+		ft_putendl("\n\n");
 		current = current->next;
 	}
 }

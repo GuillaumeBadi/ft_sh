@@ -6,7 +6,7 @@
 #    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 03:19:18 by gbadi             #+#    #+#              #
-#    Updated: 2014/12/26 21:13:23 by gbadi            ###   ########.fr        #
+#    Updated: 2015/01/03 06:12:02 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,12 @@ SRC =				\
 					ft_get_home.c\
 					ft_get_bin.c\
 					ft_fuckit.c\
+					ft_isonlyspace.c\
+					ft_aliases.c\
 					ft_exec.c\
 					ft_unsetenv.c\
+					ft_add_alias.c\
+					ft_minishellrc.c\
 					ft_setenv.c\
 					ft_repl.c\
 					ft_clear.c\

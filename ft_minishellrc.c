@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_subc.c                                          :+:      :+:    :+:   */
+/*   ft_minishellrc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 08:00:52 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 05:50:00 by gbadi            ###   ########.fr       */
+/*   Created: 2015/01/03 06:05:00 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/03 06:42:38 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-char				*ft_sub_space(char *s)
+void					ft_minishellrc(t_alias **alias, char **path, char ***env)
 {
-	int				i;
-	char			*str;
+	char				*cmd;
+	int					fd;
+	int					line;
+	int					ret;
 
-	i = 0;
-	str = NULL;
-	while (s[i] && s[i] != ' ' && s[i] != '\t')
-		i++;
-	if (s[i] == ' ' || s[i] == '\t')
-		str = ft_strndup(s, i);
-	return (str);
-}
-
-char				*ft_subc(char *s, char c)
-{
-	int				i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (ft_strsub(s, 0, i));
+	line = 0;
+	fd = open("minishell1rc", O_RDONLY);
+	while (get_next_line(fd, &cmd) > 0)
+	{
+		ret = ft_get_command(cmd, path, env, alias);
+		line++;
+		if (ret != 0)
+			dprintf(1, "Minishell One: error line %d of minishellrc\n", line);
+	}
 }
