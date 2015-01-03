@@ -6,11 +6,11 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 15:17:56 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 06:28:32 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/11/10 15:17:58 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 char			*ft_strndup(char const *s, size_t len)

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 15:40:23 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 03:05:53 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/12/31 18:09:13 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,18 @@
 # define COLOR_CYAN    "\x1b[36m"
 # define COLOR_RESET   "\x1b[0m"
 
+# define FT_ASSERT(x) ft_assert(x, #x)
+
+# define _LINE_ ft_strjoin("line: ", ft_itoa(__LINE__))
+# define _FUNCTION_ ft_strjoin("function: ", __FUNCTION__)
+# define __LOCATION__ ft_strjoin(ft_strjoin(_FUNCTION_, ", "), _LINE_)
+
+# define LOG(x) ft_putline("log.txt", ft_strjoin(__LOCATION__, ft_strjoin(" ----- ", x)))
+
 # include <string.h>
 # include "list.h"
+
+# define FT_HAS(line, c) (ft_strchr(line, c) != NULL)
 
 int				ft_atoi(const char *str);
 int				ft_isalpha(int c);
@@ -62,14 +72,12 @@ char			*ft_strtrim(char const *s);
 char			*ft_strnstr(char const *s1, const char *s2, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 char			*ft_strstr(const char *s1, const char *s2);
-char			**ft_strsplit(char const *s, char c);
+char			**ft_strsplit(char const *s, int c);
 char			*ft_trimc(char const *str, char c);
-int				ft_get_next_word_c(char const *s, char c);
 char			*ft_strndup(char const *s, size_t len);
 void			ft_strdel(char **as);
 char			*ft_strchr(char const *s, int c);
 char			*ft_strrchr(char const *s, int c);
-int				ft_get_words_number_c(char const *str, char c);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *s1, const void *s2, size_t len);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -88,5 +96,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strjoin(char const *s1, char const *s2);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 char			*ft_strtoupper(char *str);
+int				ft_putline(char *fname, char *line);
+void			ft_assert(int e, char *exp);
 
 #endif

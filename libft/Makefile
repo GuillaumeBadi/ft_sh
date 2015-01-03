@@ -17,14 +17,17 @@ SRC =	ft_atoi.c\
 		ft_intlen.c\
 		ft_isalnum.c\
 		ft_strtoupper.c\
+		ft_putline.c\
 		ft_isalpha.c\
 		ft_isascii.c\
 		ft_isdigit.c\
 		ft_isprint.c\
 		ft_memalloc.c\
+		ft_assert.c\
 		ft_isspace.c\
 		ft_memccpy.c\
 		ft_strndup.c\
+		get_next_line.c\
 		ft_memchr.c\
 		ft_memcmp.c\
 		ft_memcpy.c\
@@ -71,7 +74,6 @@ SRC =	ft_atoi.c\
 		ft_strsplit.c\
 		ft_lstnew.c\
 		ft_lstdelone.c\
-		get_next_line.c\
 		ft_lstdel.c
 
 SRCO = $(SRC:.c=.o)

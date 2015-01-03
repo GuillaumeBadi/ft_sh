@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_assert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:13:53 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:13:54 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:53:03 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:00:02 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void			ft_memdel(void **ap)
+void			ft_assert(int e, char *exp)
 {
-	free(*ap);
-	*ap = NULL;
+	if (e)
+		return ;
+	else
+		ft_putendl(ft_strjoin("Assertion failed: ", exp));
 }

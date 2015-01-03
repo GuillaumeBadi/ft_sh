@@ -5,20 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:15:25 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/26 04:15:19 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:20:23 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:20:29 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char			*ft_strchr(char const *s, int c)
 {
-	while (*s)
+	char		d;
+	int			i;
+
+	i = 0;
+	d = c;
+	while (s[i] != d)
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if (!s[i])
+			return (NULL);
+		i++;
 	}
-	return (0);
+	return ((char *)(s + i));
 }

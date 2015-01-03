@@ -5,24 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:13:14 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:13:28 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:18:05 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:18:48 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-void			*ft_memchr(const void *s, int c, size_t n)
+void				*ft_memchr(const void *s, int c, size_t n)
 {
-	char		*str;
+	unsigned char	*tmp;
 
-	str = (char *)s;
-	while (n)
+	if (s == NULL)
+		return (NULL);
+	tmp = (unsigned char *)s;
+	while (n--)
 	{
-		if (*str == (char)c)
-			return (str);
-		str++;
-		n--;
+		if (*tmp == (unsigned char)c)
+			return (tmp);
+		++tmp;
 	}
-	return (0);
+	return (NULL);
 }

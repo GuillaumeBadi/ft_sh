@@ -6,11 +6,11 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 01:44:28 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/25 03:35:25 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 18:37:05 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/get_next_line.h"
+#include "get_next_line.h"
 
 static int				ft_cpybuf(char *str, char **line, char *br, t_buf buf)
 {

@@ -1,0 +1,38 @@
+cat minishell-history
+ls
+ls ..
+l ..
+cd ..
+clear
+cat minishell-history
+ls
+
+ls
+ls
+cd -
+cd -
+
+
+lasr
+lasr
+lasr
+ls
+ls -l
+ls -l
+ls -l
+ls -R /
+ls
+ls -l
+ls -l ..
+ls -l .. /
+exit
+vim minishell1rc
+ls -la
+ls -l
+cat minishell-history
+cat minishell-history
+clear
+ls -R /
+vim ft_exit.c
+vim ft_exit.c
+ls -R /

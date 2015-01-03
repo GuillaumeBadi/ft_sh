@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:12:33 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:55:29 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 17:27:11 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:27:13 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 t_list			*ft_lstnew(void *content, size_t content_size)

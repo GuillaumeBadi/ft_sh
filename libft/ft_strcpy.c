@@ -5,17 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:15:45 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/26 02:10:32 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:21:38 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:21:42 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char			*ft_strcpy(char *dest, char const *src)
 {
-	while (*src)
-		*dest++ = *src++;
-	*dest = 0;
+	char		*d;
+	char		*s;
+
+	d = (char *)dest;
+	s = (char *)src;
+	while ((*d++ = *s++))
+		;
 	return (dest);
 }

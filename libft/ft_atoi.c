@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:09:59 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/24 16:10:24 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:26:39 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:51:58 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 int				ft_atoi(const char *str)
 {

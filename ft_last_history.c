@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_last_history.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:13:53 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:13:54 by gbadi            ###   ########.fr       */
+/*   Created: 2015/01/03 19:10:47 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/03 19:12:40 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "ft_minishell1.h"
 
-void			ft_memdel(void **ap)
+char				*ft_last_history()
 {
-	free(*ap);
-	*ap = NULL;
+	char			*s;
+	int				fd;
+
+	s = NULL;
+	fd = open("minishell-history", O_RDONLY);
+	while (get_next_line(fd, &s) > 0)
+		;
+	return (s);
 }

@@ -6,11 +6,11 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 15:10:19 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 06:52:46 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/11/10 15:10:20 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char			ft_getc(int fd)
 {

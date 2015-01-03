@@ -1,7 +1,8 @@
-echo "Minishelrc"
 alias gg=gcc -Wall -Wextra -Werror
 alias ..=cd ..
 alias ll=ls -l
+alias l=ls -la
+alias sl=ls
 alias test=echo Hello
 alias -=cd -
 alias ..=cd ..

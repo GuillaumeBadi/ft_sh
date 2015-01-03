@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:12:21 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:12:21 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 17:27:19 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 17:27:20 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 static void		ft_lstdel_next(t_list *alst, void (*del)(void *, size_t len))
 {

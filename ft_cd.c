@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:51:52 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 03:10:22 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 18:30:40 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int					ft_cd(char **env, char **path, char *dir)
 	char			*pwd;
 	int				i;
 
+	// Norme interruption
+	dir = ft_split_custom(dir)[0];
 	if (!dir)
 		// Norme interruption
 		dir = ft_get_home(env);

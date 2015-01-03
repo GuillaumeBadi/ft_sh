@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 06:31:40 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/03 19:12:46 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,7 @@ char				*translate_alias(t_alias **alias, char *command);
 void				print_alias(t_alias *alias);
 t_alias				*ft_add_alias(char *command, t_alias **alias);
 void				ft_minishellrc(t_alias **alias, char **path, char ***env);
+char				**ft_split_custom(char *str);
+char				*ft_last_history();
+
 #endif

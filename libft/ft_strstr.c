@@ -5,20 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 15:18:43 by gbadi             #+#    #+#             */
-/*   Updated: 2014/11/10 15:18:44 by gbadi            ###   ########.fr       */
+/*   Created: 2014/12/31 14:23:25 by gbadi             #+#    #+#             */
+/*   Updated: 2014/12/31 14:23:35 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char			*ft_strstr(const char *s1, const char *s2)
 {
-	char		*s;
+	size_t		i;
+	size_t		j;
+	size_t		len;
 
-	s = (char *)s1;
-	while (*s++)
-		if (ft_strnequ(s, s2, ft_strlen(s2)))
-			return (s);
+	i = 0;
+	j = 0;
+	len = 0;
+	while (s2[len])
+		len++;
+	if (len == 0)
+		return ((char *)s1);
+	while (s1[i])
+	{
+		while (s1[i + j] == s2[j])
+		{
+			j++;
+			if (j == len)
+				return ((char *)s1 + i);
+		}
+		j = 0;
+		i++;
+	}
 	return (NULL);
 }
