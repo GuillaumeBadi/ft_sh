@@ -1,148 +1,89 @@
-cat minishell-history
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
 ls
-ls ..
-l ..
-cd ..
-clear
-cat minishell-history
-ls
-
-ls
-ls
-cd -
-cd -
-
-
-lasr
-lasr
-lasr
-ls
+ls -l
 ls -l
 ls -l
 ls -l
 ls -R /
+ls -R /
 ls
 ls -l
-ls -l ..
-ls -l .. /
-exit
-vim minishell1rc
+ls -la
+env
+ls
 ls -la
 ls -l
-cat minishell-history
-cat minishell-history
-clear
+ls
+ls
+ls -l
+ls
+ls
+env
 ls -R /
-vim ft_exit.c
-vim ft_exit.c
+ls -lR /
+ls -lR /exuexit
+exit
+ls -lls -R /
 ls -R /
+ls -R /
+ls -R /
+vim ft_vim exit
+"emacs" ft_vim exit
+exit
+exit
+ls -R /
+ls -R /
+vim exit
+"emacs" exit
+exit
+ls -R /
+ls
+ls -l
+exit
+ls -R /
+exit
+c
+exit
+exit
+ls -R /
+ls -R /exit
+exit
+ls -R /
+exit
+exit
+exit
+exit
+vim exit
+"emacs" exit
+exit
+exit
+exit
+exit
+exit
+ls -R /
+ls -R /
+exit
+exit
+ls -R /
+ls -R /usr
+exit
+ls
+ls -l
+cd
+cd
+ls
+ll
+ls -l
+ls -l
+pouche
 git add --all
-vim minishell1rc
-ls
-ls -R /
-cat
-top
-ls -l
-ls -la .. /
-ls -la .. /
-clear
-echo hello
-echo hello
-ls
-ls
-ls -l
-clear
-ls
-ls -l
-ls -l
-echo hello
-echo world
-echo hello
-echo hello; hello world
-echo hello
-echo world
-echo hello; echo world
-echo hello
-echo world
-echo hello; echo world
-echo hello
-echo wordl
-git push origin master
-git commit -m 'autoupdate'
-echo world"
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo Hello
-echo world"
-echo world"
-vim repl vim repl
-echo world"
-echo hello
-echo world"
-echo hello
-echo world"
-ls
-cat
-echo hello
-echo world"
-echo hello
-echo world
-clear
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-echo hello
-echo world
-"echo hello; echo world"
-echo hello
-echo world
-"echo hello; echo world"
-echo hello
-git add --all
-git commit -m 'autoupdate'
-git push origin master
-"git add --all; git commit -m 'autoupdate'; git push origin master"
-man tcgetattr
-emacs
-kinit
-ls
-echo hello
-echo world
-"echo hello; echo world"
-ls
-ls
-ls -l
-ls -l
-ls -l
-ls
-ls
-ls -l
-ls -l
-ls -l
-ls
-ls
-ls -l

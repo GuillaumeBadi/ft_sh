@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 23:14:47 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 19:06:02 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 03:50:04 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int					ft_exec(char *bin, char *command, char **env)
 			// Norme interruption
 			dprintf(1, "%s\n", "error");
 		}
-		exit(-1);
+//		exit(-1);
 	}
 	return (WEXITSTATUS(status));
 }

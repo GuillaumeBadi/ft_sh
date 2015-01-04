@@ -6,7 +6,7 @@
 #    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 03:19:18 by gbadi             #+#    #+#              #
-#    Updated: 2015/01/04 00:43:17 by gbadi            ###   ########.fr        #
+#    Updated: 2015/01/04 02:59:13 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC =				\
 					ft_get_bin.c\
 					ft_fuckit.c\
 					ft_isonlyspace.c\
+					ft_list.c\
 					ft_split_custom.c\
 					ft_last_history.c\
 					gnl.c\

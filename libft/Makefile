@@ -73,9 +73,9 @@ SRC =	ft_atoi.c\
 		ft_strclr.c\
 		ft_strrchr.c\
 		ft_strsplit.c\
-		ft_lstnew.c\
-		ft_lstdelone.c\
-		ft_lstdel.c
+#		ft_lstnew.c\
+#		ft_lstdelone.c\
+#		ft_lstdel.c
 
 SRCO = $(SRC:.c=.o)
 

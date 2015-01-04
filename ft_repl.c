@@ -6,13 +6,13 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:31:06 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 00:41:37 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 05:42:15 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int			exec_commands(char ***env, char **path, t_alias **alias, char **set)
+int			exec_commands(char ***env, t_alias **alias, char **set, t_list **history)
 {
 	int				ret;
 	int				i;
@@ -22,28 +22,26 @@ int			exec_commands(char ***env, char **path, t_alias **alias, char **set)
 	while (set[i])
 	{
 		cmd = ft_split_custom(set[i])[0];
-		ret = ft_get_command(cmd, path, env, alias);
+		ret = ft_get_command(cmd, env, alias, history);
 		i++;
 	}
 	return (ret);
 }
 
-void			ft_repl(char **env, char **path, t_alias **alias)
+void			ft_repl(char **env, t_alias **alias, t_list **history)
 {
 	char			*cmd;
 	int				ret;
 
 	ret = 0;
-//	signal(SIGINT, ft_exit);
-//	signal (SIGQUIT, ft_exit);
-	ft_minishellrc(alias, path, &env);
-	ft_putchar('\n');
+	signal(SIGINT, ft_exit);
+	ft_minishellrc(alias, &env, history);
 	while (1)
 	{
-		cmd = ft_prompt(env, ret);
-		if (cmd)
+		cmd = ft_prompt(env, ret, history);
+		if (cmd && ft_strlen(ft_strtrim(ft_fuckit(cmd))) > 0)
 		{
-			ret = ft_get_command(cmd, path, &env, alias);
+			ret = ft_get_command(cmd, &env, alias, history);
 		}
 	}
 	cmd = cmd;
