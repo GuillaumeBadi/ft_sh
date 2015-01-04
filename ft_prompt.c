@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:24:14 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 03:05:54 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 01:08:12 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,8 @@ static char				*get_dirname(char **env)
 	return (path + len + 1);
 }
 
-char					*ft_prompt(char **env, int r)
+void					ft_print_prompt(int r, char **env)
 {
-	char				*s;
-	int					ret;
-
-	s = NULL;
 	(r == 0) ? ft_putstr(COLOR_GREEN) : ft_putstr(COLOR_RED);
 	ft_putstr("➜  ");
 	ft_putstr(COLOR_RESET);
@@ -41,7 +37,16 @@ char					*ft_prompt(char **env, int r)
 	ft_putstr(get_dirname(env));
 	ft_putstr(COLOR_RESET);
 	ft_putchar(' ');
-	ret = get_next_line(0, &s);
+}
+
+char					*ft_prompt(char **env, int r)
+{
+	char				*s;
+	int					ret;
+
+	ft_print_prompt(r, env);
+	//ret = get_next_line(0, &s);
+	ret = gnl(&s, 0, env, r);
 	if (!ft_strtrim(s))
 		return (NULL);
 	if (ret == -1)

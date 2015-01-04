@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 22:28:14 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 00:57:54 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <dirent.h>
 # include <sys/wait.h>
 # include <signal.h>
+# include <termios.h>
 		
 
 typedef struct		s_alias
@@ -65,5 +66,7 @@ char				**ft_split_custom(char *str);
 char				*ft_last_history();
 int					exec_commands(char ***env, char **path, t_alias **alias, char **set);
 int					ft_strchr2(char const *s, int c);
+int					gnl(char **sp, int fd, char **env, int ret);
+void				ft_print_prompt(int r, char **env);
 
 #endif

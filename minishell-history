@@ -122,3 +122,27 @@ echo hello
 echo world
 "echo hello; echo world"
 echo hello
+git add --all
+git commit -m 'autoupdate'
+git push origin master
+"git add --all; git commit -m 'autoupdate'; git push origin master"
+man tcgetattr
+emacs
+kinit
+ls
+echo hello
+echo world
+"echo hello; echo world"
+ls
+ls
+ls -l
+ls -l
+ls -l
+ls
+ls
+ls -l
+ls -l
+ls -l
+ls
+ls
+ls -l

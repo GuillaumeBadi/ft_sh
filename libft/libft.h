@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 15:40:23 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/31 18:09:13 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 00:44:40 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 char			*ft_strtoupper(char *str);
 int				ft_putline(char *fname, char *line);
 void			ft_assert(int e, char *exp);
+char			ft_getc(int fd);
 
 #endif

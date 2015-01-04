@@ -6,17 +6,37 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 22:45:08 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 00:45:09 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int				main(int ac, char **av, char **env)
+void				start_termios(void)
+{
+	struct termios	attributes;
+	int				fd;
+
+	fd = STDIN_FILENO;
+	if (!isatty(fd))
+		exit (1);
+	if (tcdrain(fd) == -1 || tcgetattr(fd, &attributes) == -1)
+		exit (-1);
+	attributes.c_lflag &= ~ICANON;
+	attributes.c_lflag &= ~ECHO;
+	attributes.c_cc[VMIN] = 1;
+	attributes.c_cc[VTIME] = 0;
+	if (tcsetattr(fd, TCSADRAIN, &attributes) == -1)
+		exit(-1);
+	return ;
+}
+
+int					main(int ac, char **av, char **env)
 {
 	char		**path;
 	t_alias		*alias;
 
+	start_termios();
 	alias = new_alias("shell", "echo Minishell One by GBadi");
 	if (!env[0])
 	{

@@ -1,3 +1,4 @@
+alias vim="emacs"
 alias gg=gcc -Wall -Wextra -Werror
 alias ..=cd ..
 alias ll=ls -l
