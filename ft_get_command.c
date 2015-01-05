@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:26:24 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 05:36:14 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 08:38:46 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 int		ft_is_executable(char *path)
 {
 	return (access(ft_strsplit(path, ' ')[0], X_OK) == 0);
+}
+
+char	*translate_home(char *cmd, char **env)
+{
+	char	*home;
+	char	*s1;
+	char	*s2;
+
+	home = ft_get_home(env);
+	s1 = ft_subc(cmd, '~');
+	s1 = ft_strjoin(s1, home);
+	s2 = ft_strchr(cmd, '~') + 1;
+	s1 = ft_strjoin(s1, s2);
+	return (s1);
 }
 
 int		ft_get_command(char *command, char ***env, t_alias **alias, t_list **history)
@@ -28,6 +42,8 @@ int		ft_get_command(char *command, char ***env, t_alias **alias, t_list **histor
 	ret = 0;
 	path = ft_get_path(*env);
 	command = ft_strtrim(ft_fuckit(command));
+	if (ft_strchr(command, '~') != NULL)
+		command = translate_home(command, *env);
 	if (ft_strchr(command, ';') != NULL && !ft_strnequ(command, "alias", 5))
 	{
 		set = ft_strsplit(ft_strtrim(ft_fuckit(command)), ';');
@@ -35,8 +51,6 @@ int		ft_get_command(char *command, char ***env, t_alias **alias, t_list **histor
 		free(set);
 		return (ret);
 	}
-//	if (ft_strlen(command) == 0)
-//		return (0);
 	if (!ft_strnequ(command, "alias", 5))
 		*history = write_history(command, history);
 	tr = translate_alias(alias, command);

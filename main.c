@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 05:34:34 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 08:36:11 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void				start_termios(void)
 	if (tcdrain(fd) == -1 || tcgetattr(fd, &attributes) == -1)
 		exit (-1);
 	attributes.c_lflag &= ~ICANON;
-	attributes.c_lflag &= ~(ECHO | ECHOK | ECHOE | IEXTEN);
-//| ISIG ECHONL | 
+	attributes.c_lflag &= ~(ECHOK | ECHO | ECHONL | ECHOE | IEXTEN); 
+//| ISIG   );
 	attributes.c_cc[VMIN] = 1;
 	attributes.c_cc[VTIME] = 0;
 	if (tcsetattr(fd, TCSADRAIN, &attributes) == -1)
@@ -38,6 +38,7 @@ t_list				*get_history(void)
 	int				fd;
 	char			*s;
 
+	s = NULL;
 	list = new_list();
 	fd = open("minishell-history", O_RDONLY);
 	while (get_next_line(fd, &s) > 0)

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 00:42:33 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 05:30:25 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/04 08:41:29 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ char			*gnl(int fd, char **env, int ret, t_list **history)
 	dest = malloc(sizeof(char) * BUFF_SIZE);
 	while ((c = ft_getc(fd)) != 0 && c != '\n' && i < BUFF_SIZE - 1)
 	{
-		env = env;
-		ret = ret;
+//		dprintf(1, "%c", c);
+		//// Norme interruption
+		//dprintf(1, "%d\n", c);
 		if (c == 4)
 		{
 			exit(0);
 		}
-		if (c == '\033')
+		else if (c == '\033')
 		{
 			ft_getc(fd);
 			c = ft_getc(fd);
@@ -59,12 +60,25 @@ char			*gnl(int fd, char **env, int ret, t_list **history)
 				//left
 			}
 		}
+		else if (c == 127)
+		{
+			dprintf(1, "\033[2K\r");
+			ft_print_prompt(ret, env);
+			if (ft_strlen(dest) > 0)
+			{
+				dest[i - 1] = '\0';
+				i--;
+				ft_putstr(dest);
+			}
+		}
 		else if (c == 3)
 		{
-			ft_exit(0);
+			//inutile a cause de signal.h
+			ft_exit(ret);
 			free(dest);
 			dest = (char *)malloc(sizeof(char) * BUFF_SIZE + 1);
 			i = 0;
+			ret = 1;
 		}
 		else if (c == 12)
 		{
@@ -77,12 +91,12 @@ char			*gnl(int fd, char **env, int ret, t_list **history)
 			// Norme interruption
 			dprintf(1, "%c", c);
 			dest[i] = c;
+			dest[i + 1] = '\0';
 			i++;
 		}
 	}
 	// Norme interruption
 	dprintf(1, "\n");
-	dest[i] = '\0';
 	retrieve_history(*history, 0);
 	return (ft_strdup(dest));
 }

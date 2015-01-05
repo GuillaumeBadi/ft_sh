@@ -1,21 +1,38 @@
-alias vim="emacs"
-alias gg=gcc -Wall -Wextra -Werror
-alias ..=cd ..
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    minishell1rc                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/01/04 07:28:15 by gbadi             #+#    #+#              #
+#    Updated: 2015/01/04 22:59:05 by gbadi            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# ls
 alias ll=ls -l
+alias la=ll
 alias l=ls -la
 alias sl=ls
+
+# cd
 alias -=cd -
 alias ..=cd ..
 alias ...=cd ../..
 alias 1=cd -
-alias compile=gcc -Wall -Wextra -Werror
 alias cd..=cd ..
 alias cd...=cd ../..
 alias cd....=cd ../../..
 alias cd.....=cd ../../../..
 alias cd/=cd /
+
+# git
 alias ga=git add --all
 alias gc=git commit -m "autoupdate"
 alias gp=git push origin master
-alias test="echo hello; echo world"
 alias pouche="git add --all; git commit -m 'autoupdate'; git push origin master"
+
+# c
+alias gg=gcc -Wall -Wextra -Werror
+alias compile=gg

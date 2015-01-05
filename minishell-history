@@ -87,3 +87,123 @@ ls -l
 ls -l
 pouche
 git add --all
+git commit -m 'autoupdate'
+git push origin master
+''
+'''
+""
+ls
+s
+s
+ls
+l
+ls -la
+ls
+ls -la
+ls
+ls -la
+ls -R /
+ls -la
+ls -la
+ls
+ls
+ll
+ls -l
+ls
+ls
+ls
+ls -l
+ls
+ls
+ls
+ls -l
+ls -l
+ls -R ~
+cd /nfs/zfs-student-2/users/2014/gbadi
+ls /nfs/zfs-student-2/users/2014/gbadi/ft_sh1
+ls /nfs/zfs-student-2/users/2014/gbadi/ft_sh
+last
+ll
+ls -l
+norminette *.[ch]
+ll
+ls -l
+ls
+l
+ls -la
+la
+la
+ls -l
+gg
+gcc -Wall -Wextra -Werror
+vim main.c
+ls
+ls -R /
+ls -R
+ls -R /
+ls -R /
+ls -R /
+ls
+echo test>file
+echo hello | cat -e
+ll
+ls -l
+dfhdf
+hhft
+hft
+jt
+jt
+j
+echo test>file
+ls -l
+ls -R /
+echo Hello
+echo Hello
+ll
+ls -l
+mkdir "hello world"
+cd "hello world"
+echo Hello
+echo Hello
+echo Hello
+ls
+eslknrglknrglknreglknrg
+echo Hello
+ls
+ls -l
+ls
+ls
+ls -a
+echo Hello
+ll
+ls -l
+l -la
+ls -la -la
+vim minishell1rc
+echo hELLO
+echo Hello
+echo world
+ls
+cd
+cd libft/
+rm -rf hello hello
+rm -rf hello helloll
+ll
+ls -l
+rm -rf hello helloll
+ll
+ls -l
+rm -rf "hello hello"
+rm -rf "hello hello"mditrmdir "hello hello"
+rm -rf "hello hello"mditrmdir "hello hello"
+rm -rf "hello hello"
+rmdir "hello hello"
+ls "hello hello"
+ls "hello hello"
+ls "hello hello"ls -l "hello hello"
+ls -l "hello hello"
+ls
+ls -l
+ls -l
+pouche
+git add --all
