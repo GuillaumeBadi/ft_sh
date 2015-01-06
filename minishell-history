@@ -1,248 +1,92 @@
-10
-9
-8
-7
-6
-5
-4
-3
-2
-1
-0
+
+ll
+ls -l
+ls -G
 ls
-ls -l
-ls -l
-ls -l
-ls -l
-ls -R /
-ls -R /
 ls
-ls -l
-ls -la
-env
-ls
-ls -la
-ls -l
 ls
 ls
 ls -l
-ls
-ls
-env
-ls -R /
-ls -lR /
-ls -lR /exuexit
-exit
-ls -lls -R /
-ls -R /
-ls -R /
-ls -R /
-vim ft_vim exit
-"emacs" ft_vim exit
-exit
-exit
-ls -R /
-ls -R /
-vim exit
-"emacs" exit
-exit
-ls -R /
-ls
+ll
 ls -l
-exit
-ls -R /
-exit
-c
-exit
-exit
-ls -R /
-ls -R /exit
-exit
-ls -R /
-exit
-exit
-exit
-exit
-vim exit
-"emacs" exit
-exit
-exit
-exit
-exit
-exit
-ls -R /
-ls -R /
-exit
-exit
-ls -R /
-ls -R /usr
-exit
-ls
+g
 ls -l
-cd
-cd
+ls
+ls
 ls
 ll
 ls -l
 ls -l
-pouche
-git add --all
-git commit -m 'autoupdate'
-git push origin master
-''
-'''
-""
+ll
+ls -l
+ll
+ls -l
 ls
-s
-s
 ls
+ls
+ls
+ls
+ls
+ls -l
+ls
+ls
+ls -l
+ls -l
+ls
+ls
+ls
+ls
+ls
+ls
+ls -l
+ls
+ls
+ls -l
+ls -l -a
+ls -l -a
+ls
+ls
+ls -l
 l
 ls -la
 ls
+ls -l
+ls
+ll
+ls -l
+ls
+ls
+ls -l
+ls
+ls
+ls -l
+ls -l
+ls -l
+ls -l
+ls -l
+ls- l
+ls -l
+ls -l
+ls -l
+ls
 ls -la
 ls
+ls -l
+ll
+ls -l
+ls -l
 ls -la
-ls -R /
-ls -la
-ls -la
+sl
 ls
+brew install sl
+sl
+ls
+sl
 ls
 ll
 ls -l
-ls
-ls
-ls
-ls -l
-ls
-ls
-ls
-ls -l
-ls -l
-ls -R ~
-cd /nfs/zfs-student-2/users/2014/gbadi
-ls /nfs/zfs-student-2/users/2014/gbadi/ft_sh1
-ls /nfs/zfs-student-2/users/2014/gbadi/ft_sh
-last
-ll
-ls -l
-norminette *.[ch]
-ll
-ls -l
-ls
-l
-ls -la
-la
-la
-ls -l
-gg
-gcc -Wall -Wextra -Werror
-vim main.c
-ls
-ls -R /
-ls -R
-ls -R /
-ls -R /
-ls -R /
-ls
-echo test>file
-echo hello | cat -e
-ll
-ls -l
-dfhdf
-hhft
-hft
-jt
-jt
-j
-echo test>file
-ls -l
-ls -R /
-echo Hello
-echo Hello
-ll
-ls -l
-mkdir "hello world"
-cd "hello world"
-echo Hello
-echo Hello
-echo Hello
-ls
-eslknrglknrglknreglknrg
-echo Hello
-ls
-ls -l
-ls
-ls
-ls -a
-echo Hello
-ll
-ls -l
-l -la
-ls -la -la
-vim minishell1rc
-echo hELLO
-echo Hello
-echo world
-ls
-cd
-cd libft/
-rm -rf hello hello
-rm -rf hello helloll
-ll
-ls -l
-rm -rf hello helloll
-ll
-ls -l
-rm -rf "hello hello"
-rm -rf "hello hello"mditrmdir "hello hello"
-rm -rf "hello hello"mditrmdir "hello hello"
-rm -rf "hello hello"
-rmdir "hello hello"
-ls "hello hello"
-ls "hello hello"
-ls "hello hello"ls -l "hello hello"
-ls -l "hello hello"
-ls
-ls -l
-ls -l
-pouche
-git add --all
-git commit -m 'autoupdate'
-git push origin master
-shell
-echo Minishell One by GBadi
-..
-cd ..
-ll
-ls -l
-cd libft
-cd -
-pouche
-git add --all
-git commit -m 'autoupdate'
-git push origin master
-ll
-ls -l
-l
-ls -la
-l
-ls -la
-l
-ls -la
-l
-ls -la
-ls -la
-ls -l
-ls -l ..
-mkdir "hello hello"
-ll
-ls -l
-rm -rf "hello hello"
-mkdir testdir
-rm -rf testdir
-ll
-ls -l
-rm -rf "hello hello"
-rm -rf "hello hello"
+exit
+ls -l /dev
+pobb
 pouche
 git add --all

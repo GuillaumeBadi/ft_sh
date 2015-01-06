@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 07:48:55 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/06 21:36:42 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ char				*get_index(t_list *list, int index);
 t_list				*write_history(char *cmd, t_list **list);
 char				*retrieve_history(t_list *list, int direction);
 int					list_len(t_list *list);
+char				**ft_strsplit_whitespace(char *s);
 
 #endif

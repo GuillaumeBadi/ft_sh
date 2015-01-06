@@ -1,0 +1,127 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/01/06 19:55:55 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/06 21:59:34 by gbadi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_minishell1.h"
+
+static int			nb_word(char const *str)
+{
+	int				i;
+	int				len;
+	int				inside;
+
+	i = 0;
+	len = 0;
+	inside = 0;
+	while (str[i])
+	{
+		if (str[i] == '\"' && inside == 0)
+			inside = 1;
+		else if (str[i] == '\"' && inside == 1)
+			inside = 0;
+		if (!ft_isspace(str[i]) && ft_isspace(str[i + 1]) && inside == 0)
+			len++;
+		else if (!ft_isspace(str[i]) && !str[i + 1] && inside == 0)
+			len++;
+		i++;
+	}
+	return (len);
+}
+
+static int			lensplit(char const *str)
+{
+	int				len;
+	int				inside;
+	int				i;
+
+	len = 0;
+	inside = 0;
+	i = 0;
+	while (str[len])
+	{
+		if (str[i] == '\"' && inside == 0)
+		{
+			inside = 1;
+			len++;
+		}
+		else if (str[i] == '\"' && inside == 1)
+		{
+			inside = 0;
+			len++;
+		}
+		if (inside == 0 && str[i] && !ft_isspace(str[i]))
+			len++;
+		if (ft_isspace(str[i]) && inside == 0)
+			return (i);
+		i++;
+	}
+	return (len);
+}
+
+static char			*cpy_split(char *dst, char const *src)
+{
+	int				i;
+	int				inside;
+
+	i = 0;
+	inside = 0;
+	while (src[i] && (!ft_isspace(src[i]) || inside == 1))
+	{
+		if (src[i] == '\"' && inside == 0)
+			inside = 1;
+		else if (src[i] == '\"' && inside == 1)
+			inside = 0;
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+char			*ft_strtrim2(char const *s)
+{
+	int				i;
+	int				len;
+
+	i = 0;
+	len = ft_strlen(s) - 1;
+	while (s[i] == '\"')
+		i++;
+	while (s[len] == '\"')
+		len--;
+	return (ft_strsub(s, i, len - i + 1));
+}
+
+char				**ft_strsplit_whitespace(char *s)
+{
+	char			**tab;
+	int				words;
+	int				i;
+
+	i = 0;
+	if (s)
+	{
+		words = nb_word(s);
+		tab = (char **)malloc(sizeof(char *) * words + 1);
+		while (i < words)
+		{
+			while (ft_isspace(*s))
+				s++;
+			tab[i] = (char *)malloc(sizeof(char) * lensplit(s));
+			tab[i] = cpy_split(tab[i], s);
+			tab[i] = ft_strtrim2(tab[i]);
+			s += lensplit(s);
+			i++;
+		}
+		tab[i] = 0;
+	}
+	return (tab);
+}
