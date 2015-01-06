@@ -207,3 +207,15 @@ ls -l
 ls -l
 pouche
 git add --all
+git commit -m 'autoupdate'
+git push origin master
+shell
+echo Minishell One by GBadi
+..
+cd ..
+ll
+ls -l
+cd libft
+cd -
+pouche
+git add --all
