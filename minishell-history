@@ -219,3 +219,30 @@ cd libft
 cd -
 pouche
 git add --all
+git commit -m 'autoupdate'
+git push origin master
+ll
+ls -l
+l
+ls -la
+l
+ls -la
+l
+ls -la
+l
+ls -la
+ls -la
+ls -l
+ls -l ..
+mkdir "hello hello"
+ll
+ls -l
+rm -rf "hello hello"
+mkdir testdir
+rm -rf testdir
+ll
+ls -l
+rm -rf "hello hello"
+rm -rf "hello hello"
+pouche
+git add --all
