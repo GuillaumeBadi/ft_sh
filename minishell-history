@@ -90,3 +90,6 @@ ls -l /dev
 pobb
 pouche
 git add --all
+git commit -m 'autoupdate'
+git push origin master
+ls
