@@ -325,3 +325,7 @@ l
 ls -la
 pouche
 pouche
+echo hello
+echo world
+pouche
+git add --all

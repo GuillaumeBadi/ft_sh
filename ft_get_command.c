@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:26:24 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 18:06:25 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:08:47 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ft_get_command(char *command, char ***env, t_alias **alias, t_list **histor
 		command = translate_home(command, *env);
 	if (ft_strchr(command, ';') != NULL && !ft_strnequ(command, "alias", 5))
 	{
+		dprintf(1, "%s\n", "ok");
 		ret = exec_commands(env, alias, command, history);
 		return (ret);
 	}
