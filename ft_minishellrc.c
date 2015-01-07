@@ -6,13 +6,13 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 06:05:00 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 07:28:01 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:28:55 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-void					ft_minishellrc(t_alias **alias, char ***env, t_list **history)
+void			ft_minishellrc(t_alias **alias, char ***env, t_list **history)
 {
 	char				*cmd;
 	int					fd;

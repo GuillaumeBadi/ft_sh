@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 22:23:32 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 22:29:11 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:21:14 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int				ft_strchr2(char const *s, int c)
 		if (s[i] == '\"' && inside == 0)
 			inside = 1;
 		else if (s[i] == '\"' && inside == 1)
-			inside = 0;	
+			inside = 0;
 		if (s[i] == c && inside == 0)
 			return (1);
 		i++;

@@ -6,25 +6,11 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 02:32:53 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 07:48:43 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:30:30 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
-
-void				print_list(t_list *list)
-{
-	t_list			*current;
-
-	current = list;
-	dprintf(1, "\n");
-	while (current != NULL)
-	{
-		// Norme interruption
-		dprintf(1, "%s\n", current->entry);
-		current = current->next;
-	}
-}
 
 t_list				*new_list(void)
 {
@@ -89,31 +75,4 @@ int					list_len(t_list *list)
 		i++;
 	}
 	return (i);
-}
-
-char				*retrieve_history(t_list *list, int direction)
-{
-	static int		offset;
-	int				len;
-	char			*res;
-
-	len = list_len(list);
-	res = (char *)malloc(sizeof(char) * BUFF_SIZE + 1);
-	if (direction == 0)
-	{
-		offset = 0;
-		return (0);
-	}
-	if (direction == UP)
-		offset--;
-	if (direction == DOWN)
-		offset++;
-	if (offset > len)
-		offset = 0;
-	if (len + offset < 0)
-		offset = -len;
-	if (len + offset >= len)
-		return (res);
-	res = get_index(list, len + offset);
-	return (res);
 }

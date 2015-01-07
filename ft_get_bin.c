@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 22:38:19 by gbadi             #+#    #+#             */
-/*   Updated: 2014/12/26 21:27:03 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 04:25:29 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char				*ft_get_bin(char *command, char **path)
 	word = get_first_word(command);
 	while (path[i])
 	{
-		if (dir_has(path[i], word))
+		if (dir_has(path[i], word) && !ft_strequ(".", command))
 			return (ft_strjoin(ft_strjoin(path[i], "/"), word));
 		i++;
 	}

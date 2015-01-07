@@ -6,11 +6,13 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 19:55:55 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/06 21:59:34 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:39:48 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
+
+#define FUCK len = 0; i = 0; inside = 0
 
 static int			nb_word(char const *str)
 {
@@ -42,9 +44,7 @@ static int			lensplit(char const *str)
 	int				inside;
 	int				i;
 
-	len = 0;
-	inside = 0;
-	i = 0;
+	FUCK;
 	while (str[len])
 	{
 		if (str[i] == '\"' && inside == 0)
@@ -86,7 +86,7 @@ static char			*cpy_split(char *dst, char const *src)
 	return (dst);
 }
 
-char			*ft_strtrim2(char const *s)
+char				*ft_strtrim2(char const *s)
 {
 	int				i;
 	int				len;

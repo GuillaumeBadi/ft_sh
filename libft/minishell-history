@@ -4,3 +4,11 @@ cd ..
 cd ..
 ..
 cd ..
+l
+ls -la
+l
+ls -la
+ls -l
+make clean
+..
+cd ..

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 23:14:47 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/06 23:09:33 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:34:51 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,14 @@ int					ft_exec(char *bin, char *command, char **env)
 	if (child < 0)
 		return (-1);
 	if (child > 0)
-	{
 		waitpid(child, &status, 0);
-	}
 	else
 	{
 		bla = ft_strsplit_whitespace(command);
 		if (ft_strequ(bla[0], "ls"))
-		{
 			bla = ft_append(bla, "-G");
-		}
 		if (execve(bin, bla, env) < 0)
-		{
-			// Norme interruption
 			dprintf(1, "%s\n", "error");
-		}
-//		exit(-1);
 	}
 	return (WEXITSTATUS(status));
 }

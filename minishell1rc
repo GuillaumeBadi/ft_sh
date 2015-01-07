@@ -6,9 +6,11 @@
 #    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/04 07:28:15 by gbadi             #+#    #+#              #
-#    Updated: 2015/01/06 23:25:32 by gbadi            ###   ########.fr        #
+#    Updated: 2015/01/07 05:27:26 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#ft_putstr("➜  ");
 
 # ls
 alias ll=ls -l
@@ -17,6 +19,7 @@ alias l=ls -la
 
 # cd
 alias -=cd -
+alias .=cd .
 alias ..=cd ..
 alias ...=cd ../..
 alias 1=cd -
@@ -30,8 +33,4 @@ alias cd/=cd /
 alias ga=git add --all
 alias gc=git commit -m "autoupdate"
 alias gp=git push origin master
-alias pouche="git add --all; git commit -m 'autoupdate'; git push origin master"
-
-# c
-alias gg=gcc -Wall -Wextra -Werror
-alias compile=gg
+alias pouche="git add --all; git commit -m ''"

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/26 20:42:31 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/03 01:40:57 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:32:59 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,19 @@ char				*ft_fuckit(char *s)
 	i = 0;
 	j = 0;
 	new = (char *)malloc(sizeof(char) * ft_strlen(s));
+	if (!s || ft_isonlyspace(s))
+		return (0);
 	while (s[i])
 	{
-		if(ft_isspace(s[i]) && new[j - 1] != ' ')
+		if (ft_isspace(s[i]) && new[j - 1] != ' ')
 		{
-			new[j] = ' ';
+			new[j++] = ' ';
 			i++;
-			j++;
 		}
 		else if (ft_isspace(s[i]))
 			i++;
 		else
-		{
-			new[j] = s[i];
-			i++;
-			j++;
-		}
+			new[j++] = s[i++];
 	}
 	new[j] = '\0';
 	return (new);

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 19:26:10 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/06 22:05:34 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:37:25 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,3 @@ void					print_alias(t_alias *alias)
 		current = current->next;
 	}
 }
-
-char					*translate_alias(t_alias **alias, char *command)
-{
-	char				**tab;
-	char				*output;
-	int					i;
-
-//	print_alias(*alias);
-	i = 0;
-	tab = ft_strsplit(command, ' ');
-	if (ft_strequ(tab[0], "alias"))
-	{
-		return (command);
-	}
-	output = get_output(*alias, tab[i]);
-	if (output != NULL)
-		tab[i] = ft_strdup(output);
-	return (ft_tabjoin(tab));
-}
-

@@ -6,13 +6,13 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:31:06 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 07:26:50 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 05:24:42 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int			exec_commands(char ***env, t_alias **alias, char **set, t_list **history)
+int		exec_commands(char ***e, t_alias **alias, char **set, t_list **history)
 {
 	int				ret;
 	int				i;
@@ -22,13 +22,13 @@ int			exec_commands(char ***env, t_alias **alias, char **set, t_list **history)
 	while (set[i])
 	{
 		cmd = ft_split_custom(set[i])[0];
-		ret = ft_get_command(cmd, env, alias, history);
+		ret = ft_get_command(cmd, e, alias, history);
 		i++;
 	}
 	return (ret);
 }
 
-void			ft_repl(char **env, t_alias **alias, t_list **history)
+void	ft_repl(char **env, t_alias **alias, t_list **history)
 {
 	char			*cmd;
 	int				ret;
@@ -41,8 +41,8 @@ void			ft_repl(char **env, t_alias **alias, t_list **history)
 		cmd = ft_prompt(env, ret, history);
 		if (cmd && ft_strlen(ft_strtrim(ft_fuckit(cmd))) > 0)
 		{
+			dprintf(1, "%s\n", "ok");
 			ret = ft_get_command(cmd, &env, alias, history);
 		}
 	}
-	cmd = cmd;
 }
