@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 00:42:33 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 06:03:30 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:00:16 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ char			*clr(char *dest, char **env, int ret)
 	ft_clear();
 	ft_print_prompt(ret, env);
 	ft_putstr(dest);
+	return (dest);
 }
 
-int				ft_key(int fd, char **env, int ret, t_list *list)
+int				ft_key(char **dest, int fd, char **env, int ret, t_list **history)
 {
 	char		c;
 	int			i;
@@ -61,9 +62,9 @@ int				ft_key(int fd, char **env, int ret, t_list *list)
 	c = ft_getc(fd);
 	i = 0;
 	if (c == 'A')
-		i = get_up_key(&dest, env, ret, history);
+		i = get_up_key(dest, env, ret, history);
 	else if (c == 'B')
-		i = get_down_key(&dest, env, ret, history);
+		i = get_down_key(dest, env, ret, history);
 	return (i);
 }
 
@@ -81,7 +82,7 @@ char			*gnl(int fd, char **env, int ret, t_list **history)
 		if (c == 4)
 			exit(0);
 		else if (c == '\033')
-			ft_key(fd, env, ret, list);
+			i = ft_key(&dest, fd, env, ret, history);
 		else if (c == 127)
 			i = backspace(env, ret, i, &dest);
 		else if (c == 12)

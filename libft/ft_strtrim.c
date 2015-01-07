@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 16:41:12 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 04:45:08 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 17:58:32 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ char			*ft_strtrim(char const *s)
 		len--;
 	if (len == 0)
 		return (0);
-	dprintf(1, "len = %d i = %d\n", len , i);
 	return (ft_strsub(s, i, len - i + 1));
 }
