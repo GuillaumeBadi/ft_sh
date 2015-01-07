@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:51:52 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:35:38 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:31:28 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int					get_error_cd(char *dir)
 		ft_putendl(ft_strjoin("cd: No such file or directory: ", dir));
 	else
 		ft_putendl("Permission denied");
-	return (-1);
+	return (42);
 }
 
-int					ft_cd(char **env, char **path, char *dir)
+int					ft_cd(char **env, char *dir)
 {
 	char			*pwd;
 	int				i;
 
-	dir = ft_split_custom(dir)[0];
 	if (!dir)
 		dir = ft_get_home(env);
+	dir = ft_split_custom(dir)[0];
 	if (dir[0] == '~')
 		dir = ft_strjoin(ft_get_home(env), dir + 1);
 	if (dir[0] == '-' && !dir[1])
@@ -49,6 +49,5 @@ int					ft_cd(char **env, char **path, char *dir)
 	pwd = ft_pwd();
 	i = ft_get_env(env, "PWD");
 	env[i] = ft_strjoin("PWD=", pwd);
-	(void)path;
 	return (0);
 }

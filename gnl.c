@@ -6,13 +6,14 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 00:42:33 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 18:01:08 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 20:35:25 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
 #define FUCK {ft_putchar(c); dest[i] = c; i++;}
+#define FUCK2 int fd, char **env
 
 int				get_up_key(char **dest, char **env, int ret, t_list **history)
 {
@@ -45,15 +46,7 @@ int				backspace(char **env, int ret, int i, char **dest)
 	return (i);
 }
 
-char			*clr(char *dest, char **env, int ret)
-{
-	ft_clear();
-	ft_print_prompt(ret, env);
-	ft_putstr(dest);
-	return (dest);
-}
-
-int				ft_key(char **dest, int fd, char **env, int ret, t_list **history)
+int				ft_key(char **dest, FUCK2, int ret, t_list **history)
 {
 	char		c;
 	int			i;

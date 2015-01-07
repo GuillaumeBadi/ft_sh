@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_env.c                                       :+:      :+:    :+:   */
+/*   clr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 05:58:03 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 19:26:53 by gbadi            ###   ########.fr       */
+/*   Created: 2015/01/07 18:38:47 by gbadi             #+#    #+#             */
+/*   Updated: 2015/01/07 18:39:13 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
 
-int				ft_get_env(char **env, char *name)
+char			*clr(char *dest, char **env, int ret)
 {
-	int			i;
-
-	i = 0;
-	while (env[i])
-	{
-		if (ft_strnequ(env[i], name, ft_strlen(name)))
-			return (i);
-		i++;
-	}
-	return (-1);
+	ft_clear();
+	ft_print_prompt(ret, env);
+	ft_putstr(dest);
+	return (dest);
 }

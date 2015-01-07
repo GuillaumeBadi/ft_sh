@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:27:35 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 18:05:12 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:55:28 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void				ft_exit(int ret);
 void				ft_env(char **env);
 int					ft_get_command(char *command, char ***env, t_alias **alias, t_list **history);
 void				ft_repl(char **env, t_alias **alias, t_list **history);
-int					ft_cd(char **env, char **path, char *dir);
+int					ft_cd(char **env, char *dir);
 char				*ft_pwd(void);
 void				ft_clear(void);
 int					ft_get_env(char **env, char *name);
@@ -80,9 +80,10 @@ void				ft_print_prompt(int r, char **env);
 t_list				*new_list(void);
 t_list				*push_list(t_list *list, char *entry);
 char				*get_index(t_list *list, int index);
-t_list				*write_history(char *cmd, t_list **list);
+t_list				*write_history(char *cmd, t_list **list, char **env);
 char				*retrieve_history(t_list *list, int direction);
 int					list_len(t_list *list);
 char				**ft_strsplit_whitespace(char *s);
+char				*clr(char *dest, char **env, int ret);
 
 #endif

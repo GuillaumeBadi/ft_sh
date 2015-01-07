@@ -12,3 +12,7 @@ ls -l
 make clean
 ..
 cd ..
+cd ..
+cd -
+ls
+cd ..

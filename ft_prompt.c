@@ -6,11 +6,13 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:24:14 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:28:05 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 20:29:03 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minishell1.h"
+
+#include <time.h>
 
 static char				*get_dirname(char **env)
 {
@@ -29,14 +31,38 @@ static char				*get_dirname(char **env)
 	return (path + len + 1);
 }
 
+char					*get_time(void)
+{
+	time_t				t;
+	char				*dest;
+
+	time(&t);
+	dest = ft_strsub(ctime(&t), 11, 8);
+	return (dest);
+}
+
+char					*get_host(void)
+{
+	char				name[8];
+
+	gethostname(name, 8);
+	return (ft_strdup(name));
+}
+
 void					ft_print_prompt(int r, char **env)
 {
 	dprintf(1, "\033[2K\r");
+	ft_putstr(COLOR_CYAN);
+	ft_putstr("[ ");
+	ft_putstr(get_time());
+	ft_putstr(" - ");
+	ft_putstr(get_host());
+	ft_putstr(" ]");
 	if (r == 0)
 		ft_putstr(COLOR_GREEN);
 	else
 		ft_putstr(COLOR_RED);
-	ft_putstr("$ >> ");
+	ft_putstr(" $> ");
 	ft_putstr(COLOR_CYAN);
 	ft_putstr(get_dirname(env));
 	ft_putstr(COLOR_RESET);

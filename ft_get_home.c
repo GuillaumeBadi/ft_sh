@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 09:17:59 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 00:45:42 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 19:27:01 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 char				*ft_get_home(char **env)
 {
 	char			*home;
+	int				i;
 
-	home = env[ft_get_env(env, "HOME")] + 5;
+	i = ft_get_env(env, "HOME");
+	if (i == -1)
+		return (".");
+	home = env[i] + 5;
 	return (home);
 }

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 02:32:53 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:30:30 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:55:20 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ char				*get_index(t_list *list, int index)
 	return (0);
 }
 
-t_list				*write_history(char *cmd, t_list **list)
+t_list				*write_history(char *cmd, t_list **list, char **env)
 {
-	ft_putline("minishell-history", cmd);
+	ft_putline(ft_strjoin(ft_get_home(env), "/minishell-history"), cmd);
 	*list = push_list(*list, cmd);
 	return (*list);
 }

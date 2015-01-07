@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:17:46 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:52:55 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,25 @@ void				start_termios(void)
 	return ;
 }
 
-t_list				*get_history(void)
+t_list				*get_history(char **env)
 {
 	t_list			*list;
 	int				fd;
 	char			*s;
+	char			*path;
 
 	s = NULL;
 	list = new_list();
-	fd = open("minishell-history", O_RDONLY);
+	path = ft_strjoin(ft_get_home(env), "/minishell-history");
+	dprintf(1, "path = %s\n", path);
+	fd = open(path, O_RDONLY);
 	while (get_next_line(fd, &s) > 0)
 		list = push_list(list, s);
 	close(fd);
 	if (list->next)
 		list = list->next;
+	else
+		list = NULL;
 	return (list);
 }
 
@@ -57,7 +62,6 @@ int					main(int ac, char **av, char **env)
 
 	path1 = "PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:";
 	path2 = "/usr/texbin:/nfs/zfs-student-2/users/2014/gbadi/.brew/bin";
-	history = get_history();
 	start_termios();
 	alias = new_alias("shell", "echo Minishell One by GBadi");
 	if (!env[0])
@@ -70,6 +74,7 @@ int					main(int ac, char **av, char **env)
 	ft_setenv(&env, ft_strjoin("PWD=", ft_pwd()));
 	ft_setenv(&env, "USER=gbadi");
 	ft_setenv(&env, ft_strjoin("OLDPWD=", ft_pwd()));
+	history = get_history(env);
 	ft_repl(env, &alias, &history);
 	(void)ac;
 	(void)av;
