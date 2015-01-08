@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 22:38:19 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 18:35:47 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/08 18:44:08 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char				*get_first_word(char *command)
 	i = 0;
 	while (command[i] && command[i] > ' ')
 		i++;
-	return (ft_strndup(command, i));
+	return (ft_strsub(command, 0, i));
 }
 
 int					dir_has(char *dir, char *command)

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 18:52:55 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 20:38:21 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ t_list				*get_history(char **env)
 	s = NULL;
 	list = new_list();
 	path = ft_strjoin(ft_get_home(env), "/minishell-history");
-	dprintf(1, "path = %s\n", path);
 	fd = open(path, O_RDONLY);
 	while (get_next_line(fd, &s) > 0)
 		list = push_list(list, s);

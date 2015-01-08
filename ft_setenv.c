@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 06:22:34 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 03:21:44 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/08 18:57:32 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int					ft_setenv(char ***env, char *xport)
 		if (ft_strequ(ft_subc((*env)[i], '='), name))
 		{
 			(*env)[i] = ft_strdup(xport);
-			return (1);
+			return (0);
 		}
 		i++;
 	}
 	*env = create_env(*env, xport, i);
-	return (1);
+	return (0);
 }

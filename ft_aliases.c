@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 19:26:10 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:37:25 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/07 20:39:13 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,8 @@ void					print_alias(t_alias *alias)
 	current = alias;
 	while (current != NULL)
 	{
-		ft_putstr("input: ");
 		ft_putstr(current->input);
-		ft_putstr(" => output: ");
+		ft_putstr("\t\t=> output: ");
 		ft_putendl(current->output);
 		current = current->next;
 	}

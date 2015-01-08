@@ -6,7 +6,7 @@
 #    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/04 07:28:15 by gbadi             #+#    #+#              #
-#    Updated: 2015/01/07 19:27:54 by gbadi            ###   ########.fr        #
+#    Updated: 2015/01/08 18:53:13 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ alias l=ls -la
 # cd
 alias -=cd -
 alias .=cd .
-alias cd~=cd ~
 alias ..=cd ..
 alias ...=cd ../..
 alias 1=cd -
