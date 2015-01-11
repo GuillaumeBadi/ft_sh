@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:24:14 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 20:29:03 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/10 17:39:42 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char					*get_host(void)
 
 void					ft_print_prompt(int r, char **env)
 {
-	dprintf(1, "\033[2K\r");
+	ft_putstr("\033[2K\r");
 	ft_putstr(COLOR_CYAN);
 	ft_putstr("[ ");
 	ft_putstr(get_time());

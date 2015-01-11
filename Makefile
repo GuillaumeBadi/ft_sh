@@ -6,7 +6,7 @@
 #    By: gbadi <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 03:19:18 by gbadi             #+#    #+#              #
-#    Updated: 2015/01/07 18:39:31 by gbadi            ###   ########.fr        #
+#    Updated: 2015/01/09 05:27:08 by gbadi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRC =				\
 					ft_aliases.c\
 					ft_exec.c\
 					ft_unsetenv.c\
-					ft_strchr2.c\
 					ft_add_alias.c\
 					ft_minishellrc.c\
 					ft_setenv.c\
@@ -53,8 +52,8 @@ FLAGS = 			-Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(SRCO)
-#	make -C $(LIB)
-#	make -C $(LIB) clean
+	make -C $(LIB)
+	make -C $(LIB) clean
 	gcc -o $(NAME) $(FLAGS) $(SRC) libft/libft.a -I./libft/
 
 clean:

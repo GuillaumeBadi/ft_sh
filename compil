@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-make re
-if [ $? == 0 ]
-then
-	./ft_minishell1
-else
-	echo EROOR
-fi

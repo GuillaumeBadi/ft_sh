@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 03:32:42 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 20:38:21 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/10 18:54:58 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,16 @@ int					main(int ac, char **av, char **env)
 	t_alias		*alias;
 	t_list		*history;
 	char		*path1;
-	char		*path2;
 
-	path1 = "PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:";
-	path2 = "/usr/texbin:/nfs/zfs-student-2/users/2014/gbadi/.brew/bin";
+	path1 = "PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:\
+/usr/texbin:/nfs/zfs-student-2/users/2014/gbadi/.brew/bin";
 	start_termios();
 	alias = new_alias("shell", "echo Minishell One by GBadi");
 	if (!env[0])
 	{
 		env = (char **)malloc(sizeof(char *) * 1);
 		env[0] = 0;
-		ft_setenv(&env, ft_strjoin(path1, path2));
+		ft_setenv(&env, ft_strdup(path1));
 		ft_setenv(&env, "HOME=/nfs/zfs-student-2/users/2014/gbadi");
 	}
 	ft_setenv(&env, ft_strjoin("PWD=", ft_pwd()));

@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 23:14:47 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:34:51 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/10 18:59:55 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int					ft_exec(char *bin, char *command, char **env)
 		if (ft_strequ(bla[0], "ls"))
 			bla = ft_append(bla, "-G");
 		if (execve(bin, bla, env) < 0)
-			dprintf(1, "%s\n", "error");
+			ft_putendl(ft_strjoin(bin, ": Unknown error"));
 	}
 	return (WEXITSTATUS(status));
 }

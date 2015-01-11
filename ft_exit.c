@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 04:13:28 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/04 05:59:26 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/10 17:36:14 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void					ft_exit(int s)
 {
 	ft_putendl("");
 	ft_print_prompt(s, NULL);
-	signal(SIGINT, ft_exit);
+	//signal(SIGINT, ft_exit);
 }

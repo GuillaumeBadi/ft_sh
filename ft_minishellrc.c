@@ -6,7 +6,7 @@
 /*   By: gbadi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/03 06:05:00 by gbadi             #+#    #+#             */
-/*   Updated: 2015/01/07 05:28:55 by gbadi            ###   ########.fr       */
+/*   Updated: 2015/01/10 17:54:06 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void			ft_minishellrc(t_alias **alias, char ***env, t_list **history)
 			ret = ft_get_command(cmd, env, alias, history);
 		line++;
 		if (ret != 0)
-			dprintf(1, "Minishell One: error line %d of minishellrc\n", line);
+			ft_iformat("Minishell One: error line ^ of minishellrc\n", line);
 	}
+	close(fd);
 }
